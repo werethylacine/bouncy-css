@@ -1,0 +1,211 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  text-align: center;
+}
+
+.section {
+  border-bottom: 1px solid #FFd;
+}
+
+p {
+  margin: auto;
+  padding: 0px 200px 0px 200px;
+}
+
+.original {
+  background-color: hsla(200, 40%, 50%, 1);
+  background-image:
+    radial-gradient(hsla(70, 80%, 80%, 1) 30%, transparent 35%),
+    radial-gradient(hsla(0, 0%, 0%, .1), transparent 35%);
+  background-position: 50% 50%, 50% calc(50% + .3em);
+  background-size: 2em 2em, 3em 1em;
+}
+
+.traveling {
+  background-color: hsla(200, 40%, 50%, 1);
+  overflow: hidden;
+}
+
+.ball {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: hsla(70, 80%, 80%, 1);
+  position: relative;
+  top: 50%;
+  left: -10%;
+  z-index: -10;
+  animation: verticalbounce 2s linear infinite, forward 8s linear infinite;
+}
+
+.shadow {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: radial-gradient(hsla(0, 0%, 0%, .1), transparent 40%);
+  position: relative;
+  top: 66%;
+  left: -10%;
+  z-index: -10;
+  transform: scale(1, .4) translateX(-50px);
+  animation: forward 8s linear infinite, shadow-mater 2s linear infinite;
+}
+
+.original {
+  animation: bounce 1s infinite;
+}
+
+.traveling {
+  animation: traveling 4s, bounce 1s;
+}
+
+.ontext {
+  font-family: 'Pirata one', cursive;
+  font-size: 3em;
+  color: hsla(200, 80%, 40%, 1);
+}
+
+.ontext p {
+  animation: textbounce 1s infinite;
+  text-shadow: 0px 20px 40px hsla(0, 0%, 0%, .1);
+}
+
+@keyframes shadow-mater {
+  0% {
+    height: 20px;
+    width: 20px;
+    transform: scale(1, .4) translateX(-25px);
+  }
+  50% {
+    height: 80px;
+    width: 80px;
+    transform: scale(1, .4) translateX(-50px);
+  }
+  100% {
+    height: 20px;
+    width: 20px;
+    transform: scale(1, .4) translateX(-25px);
+  }
+}
+
+@keyframes forward {
+  0% {
+    left: -10%;
+    z-index: 5;
+  }
+  97% {
+    left: 110%;
+    z-index: 5;
+  }
+  98% {
+    z-index: -10;
+    left: 110%;
+  }
+  100% {
+    left: -10%;
+    z-index: -10;
+  }
+}
+
+
+@keyframes verticalbounce {
+  0% {
+    transform: scale(1, 1);
+    top: 30%;
+  }
+  5% {
+    top: 31%;
+  }
+  13% {
+    top: 36%;
+  }
+  45% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1, .6);
+    top: 70%;
+  }
+  60% {
+    transform: scale(1, 1);
+  }
+  87% {
+    top: 36%;
+  }
+  95% {
+    top: 31%;
+  }
+  100% {
+    transform: scale(1, 1);
+    top: 30%;
+  }
+}
+
+@keyframes traveling{
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+@keyframes textbounce {
+  0% {
+    transform: translateY(50% - 4em) scale(1, 1);
+    text-shadow: 0px 40px 80px hsla(0, 0%, 0%, .1);
+  }
+  40% {
+    transform: translateY(50%) scale(1, .9);
+    text-shadow: 0px 0px 0px hsla(0, 0%, 0%, .4);
+  }
+  45% {
+    transform: translateY(50%) scale(1.01, .7);
+    text-shadow: 0px 0px 0px hsla(0, 0%, 0%, .6);
+  }
+  50% {
+    transform: translateY(50%) scale(1.01, .5);
+    text-shadow: 0px 0px 0px hsla(0, 0%, 0%, .8);
+  }
+  100% {
+    transform: translateY(50% - 4em) scale(1, 1);
+    text-shadow: 0px 40px 80px hsla(0, 0%, 0%, .1);
+
+  }
+}
+
+@keyframes bounce {
+  0% {
+    background-position: 50% calc(50% - 4em), 50% calc(50% + .4em);
+    background-size: 2em 2em, 1em 1em;
+  }
+  40% {
+    background-position: 50% 50%, 50% calc(50% + .3em);
+    background-size: 2em 2em, 3em 1em;
+  }
+  45% {
+    background-position: 50% 50%, 50% calc(50% + .3em);
+    background-size: 2em 1.5em, 3em 1em;
+  }
+  50% {
+    background-position: 50% 50%, 50% calc(50% + .3em);
+    background-size: 2em 1em, 3em 1em;
+  }
+  100% {
+    background-position: 50% calc(50% - 4em), 50% calc(50% + .3em);
+    background-size: 2em 2em, 1em 1em;
+  }
+}
